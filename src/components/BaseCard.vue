@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <div v-if="$slots.header" class="card-header">
-      <slot name="header" />
+    <div v-if="$slots.header" class="card-header">      // $slots: eingebautes Objekt, in dem steht, welche Slots die Elternkomponente tatsächlich befüllt hat
+      <slot name="header" />                            // ist Slot nicht befüllt = undefinded (umgebendes div wird nicht gerendert)
     </div>
     <div class="card-body">
       <slot />
