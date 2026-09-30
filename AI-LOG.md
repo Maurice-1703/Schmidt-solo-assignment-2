@@ -13,3 +13,7 @@ Verstanden: Id einmalig, wird nicht mehr verändert also konstant; erhält durch
 Prompt: $slot.header in BaseCard erklären lassen
 Anwendung: erklärende Kommentare hinzugefügt
 Verstanden: sorgt dafür, dass die BaseCard auch ohne Header korrekt angezeigt wird (slot nicht befüllt, durch if-Abfrage kein Rendern)
+
+Prompt: Zwischenstand von NoteCard.vue überprüfen lassen
+Anwendung: setup Attribut im script-Tag einfügen, #header-Slot richtig benutzen, v-for Schleife für Tags noch ergänzen
+Verstanden: BaseCard als generische Komponente definiert über slot Platzhalter, diese werde durch template-Tag mit entsprechender Id befüllt
