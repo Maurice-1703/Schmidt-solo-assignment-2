@@ -5,8 +5,8 @@ defineEmits(['update:modelValue'])
  
 <template>
   <input
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
+    v-bind:value="modelValue"
+    v-on:input="$emit('update:modelValue', $event.target.value)"
     placeholder="Suchen ..."
   >
 </template>

@@ -7,7 +7,7 @@ export function useNotes() {
   function addNote(note) {
     // neue Notiz mit eigener id an die Liste hängen
     const newId = Date.now();
-    notes.value.push({ id: newId, ...note });
+    notes.value.push({ ...note, id: newId });
   }
  
   function deleteNote(idToDelete) {
@@ -17,8 +17,18 @@ export function useNotes() {
   }
  
   function filteredNotes(term) {
-    // TODO: nach Titel, Text oder Tag filtern
-    return computed(() => notes.value)
+    // nach Titel, Text oder Tag filtern
+    return computed(() => {
+      // Suchbegriff holen und klein schreiben
+      const searchInput = term.value.toLowerCase();
+
+      return notes.value.filter((note) => {
+        if (note.title.toLowerCase().includes(searchInput)) return true;
+        if (note.content.toLowerCase().includes(searchInput)) return true;
+        if (note.tags.some((tag) => tag.toLowerCase().includes(searchInput))) return true;
+        return false;
+      })
+    })
   }
  
   return { notes, addNote, deleteNote, filteredNotes }

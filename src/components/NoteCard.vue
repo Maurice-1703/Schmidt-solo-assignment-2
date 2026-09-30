@@ -16,12 +16,15 @@ const emits = defineEmits<{
 </script>
 
 <template>
-    <BaseCard>
+    <base-card>
         <template #header><h2>{{ props.note.title }}</h2></template>            <!--Einbettung in header-Slot von BaseCard-->
         <p>{{ props.note.content }}</p>
-        <button v-on:click="emits('deleted', props.note.id)">Löschen</button>
         <ul>
             <li v-for="tag in props.note.tags">{{ tag }}</li>
         </ul>
-    </BaseCard>
+        <button v-on:click="emits('deleted', props.note.id)">Löschen</button>
+    </base-card>
 </template>
+
+<style scoped>
+</style>
