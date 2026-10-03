@@ -2,7 +2,6 @@
 import BaseCard from './BaseCard.vue';
 import type { Note } from '../types/note.ts';
 
-//
 interface Props {
     note: Note;
 }

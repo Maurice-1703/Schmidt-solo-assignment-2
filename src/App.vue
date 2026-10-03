@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { useNotes } from './composables/useNotes.js'
 import SearchBar from './components/SearchBar.vue';
 import NoteForm from './components/NoteForm.vue';
