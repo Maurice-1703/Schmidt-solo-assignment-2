@@ -8,7 +8,7 @@ import NoteCard from './components/NoteCard.vue';
 
 const { addNote, deleteNote, filteredNotes } = useNotes();              // destructuring: useNotes gibt Objekt zurück, Teile werden direkt ausgepackt
 const searchTerm = ref<string>("");
-const displayedNotes = ref(filteredNotes(searchTerm));
+const displayedNotes = filteredNotes(searchTerm);
 
 </script>
 
@@ -17,7 +17,7 @@ const displayedNotes = ref(filteredNotes(searchTerm));
     <search-bar v-model="searchTerm"></search-bar>
     <note-form v-on:note-submitted="addNote($event)"></note-form>            <!-- Event-Listener für noteSubmitted ruft addNote auf, $event enthält Wert, den das Kind geschickt hat (NoteWithoutId)-->
 
-    <div>
+    <div class="notes">
       <note-card v-for="note in displayedNotes" v-bind:note="note" v-on:deleted="deleteNote" v-bind:key="note.id"></note-card>
     </div>
   </div>
@@ -28,7 +28,14 @@ const displayedNotes = ref(filteredNotes(searchTerm));
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: burlywood;
   padding: 1rem;
+}
+
+.notes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-left: 5rem;
 }
 </style>

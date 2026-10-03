@@ -16,14 +16,23 @@ const emits = defineEmits<{
 
 <template>
     <base-card>
-        <template v-slot:header><h2>{{ props.note.title }}</h2></template>            <!--Einbettung in header-Slot von BaseCard-->
-        <p>{{ props.note.content }}</p>
-        <ul>
-            <li v-for="tag in props.note.tags">{{ tag }}</li>
-        </ul>
-        <button v-on:click="emits('deleted', props.note.id)">Löschen</button>
+        <template v-slot:header>                    <!--Einbettung in header-Slot von BaseCard-->
+            <h2>{{ props.note.title }}</h2>
+        </template>
+        <template v-slot:default> 
+            <p>{{ props.note.content }}</p>
+            <ul>
+                <li v-for="tag in props.note.tags" v-bind:key="tag">{{ tag }}</li>
+            </ul>
+            <button v-on:click="emits('deleted', props.note.id)">Löschen</button>
+        </template>
     </base-card>
 </template>
 
 <style scoped>
+.card {
+    border: 0.25rem solid indigo;
+    border-radius: 1rem;
+    padding: 2rem;
+}
 </style>

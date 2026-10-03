@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { Note } from '../types/note';
+import type { Note } from '../types/note.ts';
 
 type NoteWithoutId = Omit<Note, "id">                   // erzeugt Note ohne Id (wird über addNote() hinzugefügt)
 
@@ -58,5 +58,10 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border: solid;
+    border-width: 0.25rem;
+    border-color: indigo;
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 </style>

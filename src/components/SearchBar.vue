@@ -10,3 +10,12 @@ defineEmits(['update:modelValue'])
     placeholder="Suchen ..."
   >
 </template>
+
+<style scoped>
+input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-width: 0.25rem;
+  border-color:indigo;
+}
+</style>
